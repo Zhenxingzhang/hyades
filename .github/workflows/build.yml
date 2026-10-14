@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ master, main, develop ]
+    branches: [ main, develop ]
   pull_request:
-    branches: [ master, main, develop ]
+    branches: [ main, develop ]
   release:
     types: [ created ]
 
@@ -212,7 +212,7 @@ jobs:
         retention-days: 30
 
     - name: Upload WASM to GitHub Pages
-      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main'
       uses: actions/upload-pages-artifact@v3
       with:
         path: wasm/build
@@ -256,7 +256,7 @@ jobs:
   deploy-pages:
     name: Deploy to GitHub Pages
     needs: build-wasm
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -273,7 +273,7 @@ jobs:
   package-release:
     name: Package Release
     needs: [build-native, build-wasm, build-vscode]
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' || github.event_name == 'release'
+    if: github.ref == 'refs/heads/main' || github.event_name == 'release'
     runs-on: ubuntu-latest
 
     steps:

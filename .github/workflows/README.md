@@ -19,7 +19,7 @@ Builds the project on all supported platforms:
 - Uploads artifacts for web deployment
 
 **Triggers:**
-- Push to `master`, `main`, or `develop` branches
+- Push to `main` or `develop` branches
 - Pull requests to these branches
 
 **Artifacts:**

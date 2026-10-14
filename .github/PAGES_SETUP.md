@@ -36,7 +36,7 @@ But you may need to enable workflow permissions:
 ```bash
 git add .github/workflows/build.yml
 git commit -m "Enable GitHub Pages deployment for WASM build"
-git push origin master  # or 'main' depending on your default branch
+git push origin main
 ```
 
 ## What Happens Next
@@ -87,7 +87,7 @@ The following files are deployed to GitHub Pages:
 
 The WASM site is automatically deployed when:
 
-- You push to `master` or `main` branch
+- You push to the `main` branch
 - The `build-wasm` job completes successfully
 - The workflow has write permissions
 
